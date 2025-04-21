@@ -47,24 +47,25 @@ header {
 </style> -->
 
 <template>
-  <div id="app">
-    <h1>你好啊！</h1>
+  <div class="app">
+    <!-- <Person></Person> -->
+    <!-- <Car /> -->
+    <Car_ref />
   </div>
 </template>
 
 <script lang="ts">
+import Person from './components/Person.vue'
+import Car from './components/Car.vue'
+import Car_ref from './components/Car_ref.vue'
 
 export default {
-  name: 'App' //组件名
+  name: 'App', //组件名
+  components: {
+    Person,
+    Car,
+    Car_ref
+  }
 }
 
 </script>
-
-<style>
-#app {
-  background-color: gray;
-  box-shadow: 0 0 10px;
-  border-radius: 10px;
-  padding: 20px;
-}
-</style>
