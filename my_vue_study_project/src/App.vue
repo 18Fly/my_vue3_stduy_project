@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 </script>
@@ -43,5 +43,28 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
+}
+</style> -->
+
+<template>
+  <div id="app">
+    <h1>你好啊！</h1>
+  </div>
+</template>
+
+<script lang="ts">
+
+export default {
+  name: 'App' //组件名
+}
+
+</script>
+
+<style>
+#app {
+  background-color: gray;
+  box-shadow: 0 0 10px;
+  border-radius: 10px;
+  padding: 20px;
 }
 </style>
