@@ -11,10 +11,31 @@
 <script lang="ts" setup>
 // ref用来创建 ““基本类型或对象”” 的响应式数据
 import { ref } from 'vue'
+import { type PersonInterface, type Persons } from '@/types'
 
 let name = ref('张三') // 这样的数据不是响应式的
 let age = ref(18)
 let tel = ref('13561654985')
+
+let person: PersonInterface = {
+  name: '张三',
+  age: 18,
+  id: '1'
+}
+
+let personList: /* Array<PersonInterface> */Persons = [{
+  name: '张三',
+  age: 18,
+  id: '1'
+}, {
+  name: '李四',
+  age: 19,
+  id: '2'
+}, {
+  name: '王五',
+  age: 20,
+  id: '3'
+}]
 
 function showTel() {
   alert(tel.value)
