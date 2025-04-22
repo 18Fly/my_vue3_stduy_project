@@ -1,7 +1,8 @@
 <template>
   <div class="car">
-    <h1>一辆{{ car.brand }}，价值:{{ car.value }}元</h1>
+    <h1 :key="componentKey">一辆{{ car.brand }}，价值:{{ car.value }}元</h1>
     <button @click="changePrice">修改汽车价格</button>
+    <button @click="changeCar">修改汽车</button>
     <ul>
       <li v-for="g in games" :key="g.id">{{ g.name }}</li>
     </ul>
@@ -13,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { getCurrentInstance, nextTick, reactive, ref } from 'vue';
 
 // 数据
 let car = ref({ brand: '保时捷', value: 1000000 })
@@ -33,7 +34,6 @@ let obj = {
 
 function changePrice() {
   car.value.value += 10000
-  console.log(car);
 }
 
 function changeGameName() {
@@ -41,10 +41,30 @@ function changeGameName() {
 }
 
 function changeObj() {
-  console.log(obj);
   obj.a.b.value.name = '老干妈'
-  console.log(obj.a.b);
 }
+
+let componentKey = ref(0)
+
+function changeCar() {
+  let tmp = car.value
+  // console.log(tmp)
+  /*
+  如果修改的是reactive包装的变量，替换一个新的reactive即新的Proxy对象，页面DOM不会刷新，需要强制刷新DOM页面，但此时car的Proxy确实已经发生变化，所以这种操作属于未被Vue定义包含的行为，不建议这样做
+  */
+  car.value = reactive({ // 这种写法如果修改的是ref对象，修改后数据响应式依旧保持，但是原Proxy对象被新的Proxy对象所替代(即便用reactive包起来，ref内部本身就会把传进来的数据重新代理替换旧的)，不如直接用Object.assign()在原有Proxy对象上覆盖为新的属性值
+    brand: '奔驰',
+    value: 100000
+  })
+  componentKey.value += 1
+  console.log(`两次Proxy对象：${tmp === car.value}`);
+  console.log(car)
+  // Object.assign(car.value, {
+  //   brand: '奔驰',
+  //   value: 100000
+  // })
+}
+
 
 </script>
 

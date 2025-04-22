@@ -50,7 +50,10 @@ header {
   <div class="app">
     <!-- <Person></Person> -->
     <!-- <Car /> -->
-    <Car_ref />
+    <!-- <Car_ref /> -->
+    <!-- <PersonCopy /> -->
+    <!-- <People /> -->
+    <Car_watch />
   </div>
 </template>
 
@@ -58,13 +61,19 @@ header {
 import Person from './components/Person.vue'
 import Car from './components/Car.vue'
 import Car_ref from './components/Car_ref.vue'
+import PersonCopy from './components/Person copy.vue'
+import People from './components/People.vue'
+import Car_watch from './components/Car_watch.vue'
 
 export default {
   name: 'App', //组件名
   components: {
     Person,
     Car,
-    Car_ref
+    Car_ref,
+    PersonCopy,
+    People,
+    Car_watch
   }
 }
 
