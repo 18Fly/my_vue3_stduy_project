@@ -28,7 +28,7 @@ function changeAge() {
 }
 </script>
 
-<script lang="ts">
+<!-- <script lang="ts">
 export default {
   name: 'Person',
   // setup() { // setup的渲染优先级高于data(){} 所以data中可以通过this取setup的数据 而setup不能读取data中的数据
@@ -62,7 +62,7 @@ export default {
   //   }
   // }
 }
-</script>
+</script> -->
 
 <style scoped>
 .person {

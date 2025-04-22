@@ -68,11 +68,11 @@ function changeCar() {
 
 </script>
 
-<script lang="ts">
+<!-- <script lang="ts">
 export default {
   name: 'Car_ref'
 }
-</script>
+</script> -->
 
 <style scoped>
 .car {

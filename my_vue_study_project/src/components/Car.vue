@@ -49,11 +49,11 @@ function changeObj() {
 
 </script>
 
-<script lang="ts">
+<!-- <script lang="ts">
 export default {
   name: 'Car'
 }
-</script>
+</script> -->
 
 <style scoped>
 .car {

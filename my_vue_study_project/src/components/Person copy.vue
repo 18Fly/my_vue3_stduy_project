@@ -30,11 +30,11 @@ function changeAge() {
 
 </script>
 
-<script lang="ts">
+<!-- <script lang="ts">
 export default {
   name: 'Person'
 }
-</script>
+</script> -->
 
 <style scoped>
 .person {

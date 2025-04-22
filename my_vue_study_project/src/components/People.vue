@@ -7,11 +7,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<!-- <script lang="ts">
 export default {
   name: 'People'
 }
-</script>
+</script> -->
 
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
