@@ -54,7 +54,9 @@ header {
     <!-- <PersonCopy /> -->
     <!-- <People /> -->
     <!-- <Car_watch /> -->
-    <WatchEffort ref="title" />
+    <!-- v-if在false时是卸载，而v-show在false时是隐藏不显示 -->
+    <WatchEffort ref="title" :list="personList" v-if="isShow" />
+    <!-- <WatchEffort ref="title" :list="personList" v-show="isShow_2" /> -->
     <button @click="getTitle">获取标签信息</button>
   </div>
 </template>
@@ -67,7 +69,25 @@ import PersonCopy from './components/Person copy.vue'
 import People from './components/People.vue'
 import Car_watch from './components/Car_watch.vue'
 import WatchEffort from './components/WatchEffort.vue'
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
+import { type Persons } from '@/types'
+
+let isShow = ref(true)
+let isShow_2 = ref(true)
+
+// reactive、ref可以加泛型约束属性
+let personList = reactive<Persons>([
+  {
+    name: '张三',
+    age: 18,
+    id: '1'
+  },
+  {
+    name: '李四',
+    age: 19,
+    id: '2'
+  }
+])
 
 let title = ref()
 

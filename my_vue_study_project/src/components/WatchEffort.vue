@@ -7,6 +7,10 @@
     <button @click="changeTemp">水温+10</button>
     <button @click="changeHeight">水位+10</button>
     <button @click="getTitle">打印标题</button>
+    <hr>
+    <ul>
+      <li v-for="item in list" :key="item.id">{{ item.name }} -- {{ item.age }}</li>
+    </ul>
   </div>
 </template>
 
@@ -17,7 +21,17 @@ export default {
 </script> -->
 
 <script setup lang="ts">
-import { ref, watch, watchEffect } from 'vue'
+import { onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUpdated, ref, watch, watchEffect } from 'vue'
+import { type Persons } from '@/types';
+
+// defineProps可以用泛型约束接收对象,加?可以使父组件不强制要求传入该属性
+// let x = defineProps<{ list?: Persons }>()
+
+// withDefaults用来给props设置默认值，默认值需要设置为函数，每次访问props时都会执行函数，返回值就是默认值
+let x = withDefaults(defineProps<{ list?: Persons }>(), {
+  list: () => [{ id: '0', name: '未知用户', age: 0 }]
+});
+// console.log(x.list[0]);
 
 let title = ref()
 
@@ -57,6 +71,26 @@ watchEffect(() => {
 
 // 将本组件内的变量可以暴露给外部引用的地方
 defineExpose({ title })
+
+// setup执行，就相当于创建了
+
+onBeforeMount(() => {
+  console.log('组件挂载前执行');
+})
+
+onMounted(() => {
+  console.log('组件挂载后执行');
+})
+
+onUpdated(() => {
+  console.log(`更新后水温为${temp.value}度，水位为${height.value}cm`);
+})
+
+// Vue3不再像Vue2叫destory，而是unmount
+onBeforeUnmount(() => {
+  debugger;
+  console.log('组件卸载前执行');
+})
 
 </script>
 
