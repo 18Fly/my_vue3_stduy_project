@@ -1,63 +1,34 @@
-<!-- <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
-<template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
-</template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style> -->
-
 <template>
   <div class="app">
     <!-- <Person></Person> -->
+
     <!-- <Car /> -->
+
     <!-- <Car_ref /> -->
+
     <!-- <PersonCopy /> -->
+
     <!-- <People /> -->
+
     <!-- <Car_watch /> -->
+
     <!-- v-if在false时是卸载，而v-show在false时是隐藏不显示 -->
-    <WatchEffort ref="title" :list="personList" v-if="isShow" />
+
+    <!-- <WatchEffort ref="title" :list="personList" v-if="isShow" /> -->
+
     <!-- <WatchEffort ref="title" :list="personList" v-show="isShow_2" /> -->
-    <button @click="getTitle">获取标签信息</button>
+
+    <!-- <button @click="getTitle">获取标签信息</button> -->
+
+    <!-- <Dog /> -->
+
+    <!-- <Header></Header>
+    <div class="main-content">
+      <RouterView></RouterView>
+    </div> -->
+    <!-- <Defaultlayouts /> -->
+    <Count />
+    <LoveTalk />
   </div>
 </template>
 
@@ -69,31 +40,39 @@ import PersonCopy from './components/Person copy.vue'
 import People from './components/People.vue'
 import Car_watch from './components/Car_watch.vue'
 import WatchEffort from './components/WatchEffort.vue'
+import Dog from './components/Dog.vue'
+import Header from './components/Header.vue'
+import Defaultlayouts from './layouts/Defaultlayouts.vue'
+import Count from './components/Count.vue'
+
 import { reactive, ref } from 'vue'
 import { type Persons } from '@/types'
+import { RouterView, RouterLink } from 'vue-router'
+import LoveTalk from './components/LoveTalk.vue'
 
-let isShow = ref(true)
-let isShow_2 = ref(true)
 
-// reactive、ref可以加泛型约束属性
-let personList = reactive<Persons>([
-  {
-    name: '张三',
-    age: 18,
-    id: '1'
-  },
-  {
-    name: '李四',
-    age: 19,
-    id: '2'
-  }
-])
+// let isShow = ref(true)
+// let isShow_2 = ref(true)
 
-let title = ref()
+// // reactive、ref可以加泛型约束属性
+// let personList = reactive<Persons>([
+//   {
+//     name: '张三',
+//     age: 18,
+//     id: '1'
+//   },
+//   {
+//     name: '李四',
+//     age: 19,
+//     id: '2'
+//   }
+// ])
 
-function getTitle() {
-  console.log(title.value)
-}
+// let title = ref()
+
+// function getTitle() {
+//   console.log(title.value)
+// }
 
 // 已经不需要用一个普通script标签去export default一个对象了，直接使用<script setup>，在setup标记的标签内使用defineComponent去显式配置以及一些props属性
 // export default {
