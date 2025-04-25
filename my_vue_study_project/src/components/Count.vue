@@ -17,7 +17,7 @@
 
 <script lang="ts" setup>
 import { ref, toRef, watch } from 'vue';
-import { useCountStore } from '@/store/count';
+import { useCountStore } from '@/store/Count';
 import { useTalkStore } from '@/store/LoveTalk';
 
 // 对于一个reactive包裹的实例对象中的一个ref属性值，会默认帮拆包
