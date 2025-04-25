@@ -7,8 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, toRefs, reactive, watch } from 'vue';
-import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router';
 
 // 第一种方法[query]
 // let route = useRoute()
