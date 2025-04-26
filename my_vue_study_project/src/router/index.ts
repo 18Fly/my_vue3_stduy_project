@@ -99,6 +99,10 @@ const router = createRouter({
       path: '/slot',
       component: Slot
     },
+    {
+      path: '/shallow',
+      component: () => import('@/components/Shallow.vue')
+    }
   ]
 })
 
