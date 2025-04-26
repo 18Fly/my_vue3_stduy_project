@@ -8,23 +8,24 @@
     <!-- <input type="text" :value="username" @input="username = (<HTMLInputElement>$event.target).value"> -->
 
     <!-- v-model用在组件标签上 -->
-    <!-- <AtguiguInput v-model="username"/> -->
+    <AtguiguInput v-model="username" v-model:password="password" />
     <!-- <AtguiguInput 
       :modelValue="username" 
       @update:modelValue="username = $event"
     /> -->
 
+    <!-- v-model:自定义props -->
     <!-- 修改modelValue -->
-    <AtguiguInput v-model:ming="username" v-model:mima="password"/>
+    <!-- <AtguiguInput v-model:ming="username" v-model:mima="password" /> -->
   </div>
 </template>
 
-<script setup lang="ts" name="Father">
-	import { ref } from "vue";
-  import AtguiguInput from './AtguiguInput.vue'
-  // 数据
-  let username = ref('zhansgan')
-  let password = ref('123456')
+<script setup lang="ts">
+import { ref } from "vue";
+import AtguiguInput from './AtguiguInput.vue';
+// 数据
+let username = ref('zhansgan')
+let password = ref('123456')
 </script>
 
 <style scoped>
